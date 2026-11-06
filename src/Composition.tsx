@@ -1,25 +1,18 @@
-import { CalculateMetadataFunction, Composition } from "remotion";
-
-type Props = {};
-
-const calculateMetadata: CalculateMetadataFunction<Props> = () => {
-  return {};
-};
+import { staticFile } from "remotion";
 
 export const MyComposition = () => {
   return (
-    <Composition
-      id="MyComp"
-      component={MyComponent}
-      durationInFrames={60}
-      fps={30}
-      width={1280}
-      height={720}
-      calculateMetadata={calculateMetadata}
-    />
+    <div style={{ flex: 1, backgroundColor: "#000", justifyContent: "center", alignItems: "center", display: "flex" }}>
+      <iframe 
+        src={staticFile("index.html")} 
+        style={{ 
+          width: "1080px", 
+          height: "1920px", 
+          border: "none",
+          transform: "scale(1)", 
+          background: "black" 
+        }} 
+      />
+    </div>
   );
-};
-
-export const MyComponent: React.FC<Props> = () => {
-  return null;
 };
